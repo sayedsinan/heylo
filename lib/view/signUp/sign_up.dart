@@ -17,61 +17,63 @@ class SignUp extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: sizeof.size.height * 0.03),
-                Icon(Icons.person,
-                    size: sizeof.size.height * 0.1, color: Colors.grey[800]),
-                SizedBox(height: sizeof.size.height * 0.03),
-                Text(
-                  "Welcome ",
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(height: sizeof.size.height * 0.03),
-                MyTextField(
-                  controller: controller.emailText,
-                  obscureText: false,
-                  hintText: 'email',
-                ),
-                SizedBox(height: sizeof.size.height * 0.03),
-                MyTextField(
-                  controller: controller.passwordText,
-                  obscureText: true,
-                  hintText: 'Password',
-                ),
-                SizedBox(height: sizeof.size.height * 0.03),
-                MyTextField(
-                  controller: controller.conforimpasswordText,
-                  obscureText: true,
-                  hintText: 'Password',
-                ),
-                SizedBox(height: sizeof.size.height * 0.03),
-                MyButton(
-                  onTap: () {
-                    // controller.signIN();
-                  },
-                  text: "Sign up",
-                ),
-                SizedBox(height: sizeof.size.height * 0.03),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account?",
-                    ),
-                    SizedBox(
-                      width: 4,
-                    ),
-                    Text(
-                      "Login",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: sizeof.size.height * 0.03),
+                  Icon(Icons.person,
+                      size: sizeof.size.height * 0.1, color: Colors.grey[800]),
+                  SizedBox(height: sizeof.size.height * 0.03),
+                const Text(
+                    "Welcome ",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  SizedBox(height: sizeof.size.height * 0.03),
+                  MyTextField(
+                    controller: controller.emailText,
+                    obscureText: false,
+                    hintText: 'email',
+                  ),
+                  SizedBox(height: sizeof.size.height * 0.03),
+                  MyTextField(
+                    controller: controller.passwordText,
+                    obscureText: true,
+                    hintText: 'Password',
+                  ),
+                  SizedBox(height: sizeof.size.height * 0.03),
+                  MyTextField(
+                    controller: controller.conforimpasswordText,
+                    obscureText: true,
+                    hintText: ' Re-EnterPassword',
+                  ),
+                  SizedBox(height: sizeof.size.height * 0.03),
+                  MyButton(
+                    onTap: () {
+                      controller.signUp(context);
+                    },
+                    text: "Sign up",
+                  ),
+                  SizedBox(height: sizeof.size.height * 0.03),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Already have an account?",
                       ),
-                    )
-                  ],
-                )
-              ],
+                      SizedBox(
+                        width: 4,
+                      ),
+                      Text(
+                        "Login",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

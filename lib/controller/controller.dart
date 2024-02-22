@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,7 +33,7 @@ class ChatControll extends GetxController {
     } catch (e) {}
   }
 
-  Future<UserCredential> CreateAccount(String email, String password) async {
+  Future<UserCredential> createAccount(String email, String password) async {
     try {
       UserCredential userCredential = await firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -44,10 +43,23 @@ class ChatControll extends GetxController {
     }
   }
 
-  SignUp() async {
+  signUp(BuildContext context) async {
     if (signUpasswordText != conforimpasswordText) {
-      return ScaffoldMessenger(child:  SnackBar(content: Text("password does not match")));
-    }
+      return ScaffoldMessenger(
+        child: SnackBar(
+          content: Text(
+            "password does not match",
+          ),
+        ),
+      );
+
+      }
+      try{
+        await createAccount(singUpemailText.text, signUpasswordText.text);
+
+      }catch(e){
+
+      }
   }
 
   void login() {}
