@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "47817472751",
+    "project_id": "heylo-1688c",
+    "storage_bucket": "heylo-1688c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47817472751:android:755711a183f7526c58f91a",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt3LPVwC56SbHKTZnn2k7gCFv2oza4C1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 import 'package:chat_app/components/my_button.dart';
 import 'package:chat_app/components/my_text_field.dart';
 import 'package:chat_app/controller/controller.dart';
+import 'package:chat_app/view/signUp/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,9 +19,10 @@ class Login extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: sizeof.size.height * 0.03),
-                Icon(Icons.message,
+                Icon(Icons.person,
                     size: sizeof.size.height * 0.1, color: Colors.grey[800]),
                 SizedBox(height: sizeof.size.height * 0.03),
                 Text(
@@ -41,15 +43,32 @@ class Login extends StatelessWidget {
                 ),
                 SizedBox(height: sizeof.size.height * 0.03),
                 MyButton(
-                  onTap: () {},
+                  onTap: () {
+                    controller.singIN();
+                  },
                   text: "Sign In",
                 ),
                 SizedBox(height: sizeof.size.height * 0.03),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Not a Member?",)
-                  ,  SizedBox(width: 4,)
+                    const Text(
+                      "Not a Member?",
+                    ),
+                    const SizedBox(
+                      width: 4,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(const SignUp());
+                      },
+                      child: const Text(
+                        "Sign up",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
                   ],
                 )
               ],
