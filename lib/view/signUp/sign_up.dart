@@ -25,19 +25,19 @@ class SignUp extends StatelessWidget {
                   Icon(Icons.person,
                       size: sizeof.size.height * 0.1, color: Colors.grey[800]),
                   SizedBox(height: sizeof.size.height * 0.03),
-                const Text(
+                  const Text(
                     "Welcome ",
                     style: TextStyle(fontSize: 16),
                   ),
                   SizedBox(height: sizeof.size.height * 0.03),
                   MyTextField(
-                    controller: controller.emailText,
+                    controller: controller.singUpemailText,
                     obscureText: false,
                     hintText: 'email',
                   ),
                   SizedBox(height: sizeof.size.height * 0.03),
                   MyTextField(
-                    controller: controller.passwordText,
+                    controller: controller.signUpasswordText,
                     obscureText: true,
                     hintText: 'Password',
                   ),
@@ -55,7 +55,7 @@ class SignUp extends StatelessWidget {
                     text: "Sign up",
                   ),
                   SizedBox(height: sizeof.size.height * 0.03),
-                  const Row(
+                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -64,10 +64,15 @@ class SignUp extends StatelessWidget {
                       SizedBox(
                         width: 4,
                       ),
-                      Text(
-                        "Login",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
+                      GestureDetector(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       )
                     ],
