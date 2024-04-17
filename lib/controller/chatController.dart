@@ -22,6 +22,8 @@ class ChatSupport extends GetxController {
       recivrId: reciverId,
       messeage: message,
       time: timestamp,
+      name: '',
+      about: '', image: '',
     );
     List<String> ids = [currentUserId, reciverId];
     ids.sort();
@@ -45,85 +47,85 @@ class ChatSupport extends GetxController {
         .snapshots();
   }
 
-  void sendMessage() async {
-    if (message.text.isNotEmpty) {
-      await sendMesseage('receiverId', message.text);
-      message.clear();
-    }
-  }
+  // void sendMessage() async {
+  //   if (message.text.isNotEmpty) {
+  //     await sendMesseage(receiverId, message.text);
+  //     message.clear();
+  //   }
+  // }
 
-  Widget builtMesseageInput() {
-    return Row(
-      children: [
-        Expanded(
-          child: MyTextField(
-            controller: message,
-            hintText: 'Enter Message',
-            obscureText: false,
-          ),
-        ),
-        IconButton(onPressed: sendMessage, icon: Icon(Icons.send))
-      ],
-    );
-  }
+  // Widget builtMesseageInput() {
+  //   return Row(
+  //     children: [
+  //       Expanded(
+  //         child: MyTextField(
+  //           controller: message,
+  //           hintText: 'Enter Message',
+  //           obscureText: false,
+  //         ),
+  //       ),
+  //       IconButton(onPressed: sendMessage, icon: Icon(Icons.send))
+  //     ],
+  //   );
+  // }
 
-  Widget buildeMesseageList() {
-    return StreamBuilder(
-      stream: getMesseage("receiverId", fireAut.currentUser!.uid),
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return Text("Error: ${snapshot.error}");
-        }
+  // Widget buildeMesseageList() {
+  //   return StreamBuilder(
+  //     stream: getMesseage("receiverId", fireAut.currentUser!.uid),
+  //     builder: (context, snapshot) {
+  //       if (snapshot.hasError) {
+  //         return Text("Error: ${snapshot.error}");
+  //       }
 
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
+  //       if (snapshot.connectionState == ConnectionState.waiting) {
+  //         return Center(
+  //           child: CircularProgressIndicator(),
+  //         );
+  //       }
 
-        if (!snapshot.hasData) {
-          return Text("No data available");
-        }
+  //       if (!snapshot.hasData) {
+  //         return Text("No data available");
+  //       }
 
-        // Convert the generic snapshot to a QuerySnapshot
-        QuerySnapshot querySnapshot = snapshot.data as QuerySnapshot;
+  //       // Convert the generic snapshot to a QuerySnapshot
+  //       QuerySnapshot querySnapshot = snapshot.data as QuerySnapshot;
 
-        // Access the list of documents
-        List<DocumentSnapshot> docs = querySnapshot.docs;
+  //       // Access the list of documents
+  //       List<DocumentSnapshot> docs = querySnapshot.docs;
 
-        // Build a ListView with the document data
-        return ListView.builder(
-          itemCount: docs.length,
-          itemBuilder: (BuildContext context, int index) {
-            // Access the document data for each document
-            Map<String, dynamic> data =
-                docs[index].data() as Map<String, dynamic>;
+  //       // Build a ListView with the document data
+  //       return ListView.builder(
+  //         itemCount: docs.length,
+  //         itemBuilder: (BuildContext context, int index) {
+  //           // Access the document data for each document
+  //           Map<String, dynamic> data =
+  //               docs[index].data() as Map<String, dynamic>;
 
-            // Use the data to build a custom widget, for example a ListTile
-            return ListTile(
-              title: Text(data[
-                  'message']), // Assuming 'message' is a field in the document
-            );
-          },
-        );
-      },
-    );
-  }
+  //           // Use the data to build a custom widget, for example a ListTile
+  //           return ListTile(
+  //             title: Text(data[
+  //                 'message']), // Assuming 'message' is a field in the document
+  //           );
+  //         },
+  //       );
+  //     },
+  //   );
+  // }
 
-  Widget builtMessageItem(DocumentSnapshot document) {
-    Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+  // Widget builtMessageItem(DocumentSnapshot document) {
+  //   Map<String, dynamic> data = document.data() as Map<String, dynamic>;
 
-    var alignment = (data['senderId'] == fireAut.currentUser!.uid)
-        ? Alignment.centerRight
-        : Alignment.centerLeft;
-    return Container(
-      alignment: alignment,
-      child: Column(
-        children: [
-          Text(data['senderEmail']),
-          Text(data['message']),
-        ],
-      ),
-    );
-  }
+  //   var alignment = (data['senderId'] == fireAut.currentUser!.uid)
+  //       ? Alignment.centerRight
+  //       : Alignment.centerLeft;
+  //   return Container(
+  //     alignment: alignment,
+  //     child: Column(
+  //       children: [
+  //         Text(data['senderEmail']),
+  //         Text(data['message']),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

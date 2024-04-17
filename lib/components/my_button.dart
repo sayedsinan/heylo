@@ -1,3 +1,4 @@
+import 'package:chat_app/color.dart';
 import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
@@ -12,12 +13,12 @@ class MyButton extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(25),
           decoration: BoxDecoration(
-              color: Colors.black, borderRadius: BorderRadius.circular(10)),
+              color: button, borderRadius: BorderRadius.circular(10)),
           child: Center(
             child: Text(
               text,
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),

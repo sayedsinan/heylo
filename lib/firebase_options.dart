@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -67,15 +64,28 @@ class DefaultFirebaseOptions {
     messagingSenderId: '47817472751',
     projectId: 'heylo-1688c',
     storageBucket: 'heylo-1688c.appspot.com',
+    iosClientId: '47817472751-rj8e80vc9tmmglira2e1va6lvu7sl333.apps.googleusercontent.com',
     iosBundleId: 'com.example.chatApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBZK2OKIEOr7lBYJD5mcfkJ9jrwB7fYyZk',
-    appId: '1:47817472751:ios:62c11d6522ebd40558f91a',
+    appId: '1:47817472751:ios:3fd1a56974e6078358f91a',
     messagingSenderId: '47817472751',
     projectId: 'heylo-1688c',
     storageBucket: 'heylo-1688c.appspot.com',
-    iosBundleId: 'com.example.chatApp.RunnerTests',
+    iosClientId: '47817472751-rj8e80vc9tmmglira2e1va6lvu7sl333.apps.googleusercontent.com',
+    iosBundleId: 'com.example.chatApp',
   );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyAA9fyVEogUb5F549HxnKzQprvTBMmFG2E',
+    appId: '1:47817472751:web:5be04a5623f706c058f91a',
+    messagingSenderId: '47817472751',
+    projectId: 'heylo-1688c',
+    authDomain: 'heylo-1688c.firebaseapp.com',
+    storageBucket: 'heylo-1688c.appspot.com',
+    measurementId: 'G-BMF8ECDRJV',
+  );
+
 }

@@ -1,3 +1,4 @@
+import 'package:chat_app/color.dart';
 import 'package:chat_app/components/my_button.dart';
 import 'package:chat_app/components/my_text_field.dart';
 import 'package:chat_app/controller/controller.dart';
@@ -13,7 +14,7 @@ class Login extends StatelessWidget {
     final controller = Get.find<ChatControll>();
     var sizeof = MediaQuery.of(context);
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: maincolor,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -23,9 +24,8 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(height: sizeof.size.height * 0.03),
-                  Icon(Icons.person,
-                      size: sizeof.size.height * 0.1, color: Colors.grey[800]),
-                  SizedBox(height: sizeof.size.height * 0.03),
+                  Image.asset('assets/heylo.png'),
+                  // SizedBox(height: sizeof.size.height * 0.03),
                   const Text(
                     "Welcome back We missed you",
                     style: TextStyle(fontSize: 16),
@@ -47,25 +47,26 @@ class Login extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       const Text("Forgot Password?",
-                          style: TextStyle(color: Colors.blueGrey)),
+                          style: TextStyle(color: Colors.black)),
                       const SizedBox(
                         width: 5,
                       ),
                       GestureDetector(
                         onTap: () async {
                           await controller.resetPassword();
+                          // ignore: use_build_context_synchronously
                           showDialog(
                             context: context,
                             builder: (_) => AlertDialog(
-                              title: Text('Success'),
-                              content: Text(
+                              title: const Text('Success'),
+                              content: const Text(
                                   'Password reset email sent. Check your inbox.'),
                               actions: [
                                 TextButton(
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: Text('OK'),
+                                  child:const  Text('OK'),
                                 ),
                               ],
                             ),
@@ -74,7 +75,7 @@ class Login extends StatelessWidget {
                         child: const Text(
                           "Reset",
                           style: TextStyle(
-                            color: Colors.blueGrey,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -93,7 +94,7 @@ class Login extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Not a Member?",
+                        "Not a Member?",style: TextStyle(color: Colors.black),
                       ),
                       const SizedBox(
                         width: 4,

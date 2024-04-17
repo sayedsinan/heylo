@@ -1,4 +1,5 @@
 import 'package:chat_app/chat/chat_page.dart';
+import 'package:chat_app/color.dart';
 import 'package:chat_app/view/home/home_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,6 +15,19 @@ class ChatControll extends GetxController {
   final TextEditingController signUpasswordText = TextEditingController();
   final TextEditingController conforimpasswordText = TextEditingController();
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+  RxBool isDarkMode = false.obs; // Observable boolean for theme mode
+
+  void toggleTheme() {
+    isDarkMode.value = !isDarkMode.value;
+    Get.changeThemeMode(isDarkMode.value ? ThemeMode.dark : ThemeMode.light);
+  }
+
+  Color getTextColor() {
+    return isDarkMode.value ? Colors.white : Colors.black;
+  
+  }
+
   Future<UserCredential> signINwithEmailandPassword(
       String email, String password) async {
     try {
@@ -96,13 +110,20 @@ class ChatControll extends GetxController {
   Widget buildUserItem(DocumentSnapshot document) {
     Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
     if (firebaseAuth.currentUser!.email != data['email']) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 8,bottom: 8),
-        child: ListTile(
-          tileColor: Colors.blueGrey[800],
-          title: Text(data['email']),
-          onTap: () => Get.to(ChatPage()),
-        ),
+      return Column(
+        children: [
+      
+          ListTile(
+            leading: CircleAvatar(),
+            tileColor: maincolor,
+            title: Text(data['email']),
+            onTap: () => Get.to(ChatPageIndex(
+              recivername: data['email'],
+              reciveruid: data['id'],
+            )),
+          ),
+          Divider()
+        ],
       );
     } else {
       return Container();
