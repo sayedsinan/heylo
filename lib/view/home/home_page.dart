@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   controller.logout();
                 },
-                icon: Icon(Icons.exit_to_app))
+                icon: const Icon(Icons.exit_to_app))
           ],
         ),
         body: controller.buildUserList());

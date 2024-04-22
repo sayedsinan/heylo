@@ -11,7 +11,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var sizeof = MediaQuery.of(context);
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 3), () {
       Get.to(AuthGate());
     });
     return Scaffold(

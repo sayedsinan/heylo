@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class ChatPageIndex extends StatefulWidget {
   const ChatPageIndex({
@@ -96,6 +97,7 @@ class _ChatPageIndexState extends State<ChatPageIndex> {
         return ListView.builder(
           itemCount: docs.length,
           itemBuilder: (BuildContext context, int index) {
+            String formattedTime = DateFormat.jm().format(DateTime.now());
             Map<String, dynamic> data =
                 docs[index].data() as Map<String, dynamic>;
 
@@ -109,8 +111,15 @@ class _ChatPageIndexState extends State<ChatPageIndex> {
                 alignment: alignment,
                 child: Column(
                   children: [
-                 ChatBubble(messeage: data['message'])
-                 //  ,  Text(DateTime.now().toString())
+                    ChatBubble(messeage: data['message']),
+                    Text(
+                      formattedTime,
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    Text(DateTime.now().toString())
                   ],
                 ),
               ),
@@ -133,7 +142,6 @@ class _ChatPageIndexState extends State<ChatPageIndex> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text('hello'),
             Text(data['message']),
           ],
         ),

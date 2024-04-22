@@ -58,17 +58,17 @@ class SignUp extends StatelessWidget {
                    Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                     const Text(
                         "Already have an account?",
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 4,
                       ),
                       GestureDetector(
                         onTap: () {
                           Get.back();
                         },
-                        child: Text(
+                        child: const Text(
                           "Login",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,

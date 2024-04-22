@@ -46,6 +46,7 @@ dependencies:
   firebase_messaging: ^14.6.7
   line_awesome_flutter: ^2.0.0
   firebase_analytics:
+  intl:
 
 dev_dependencies:
   flutter_test:

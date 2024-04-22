@@ -2,7 +2,6 @@ import 'package:chat_app/api/firebase_api.dart';
 import 'package:chat_app/controller/acount_controller.dart';
 import 'package:chat_app/controller/chatController.dart';
 import 'package:chat_app/controller/controller.dart';
-import 'package:chat_app/services/auth_gate.dart';
 import 'package:chat_app/splashscreen/spalsh_screen.dart';
 import 'package:chat_app/view/notification_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
